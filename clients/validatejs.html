@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span style="color:red" id="errorMessage"></span>
+    <form action="" id="form">
+        <label for="name">name</label>
+        <input type="text" name="name" id="name">
+        <button type="submit">save</button>
+    </form>
+</body>
+<script type="text/javascript">
+    let form = document.getElementById('form');
+    let name = document.getElementById('name');
+
+    form.addEventListener('submit', (e) => {
+        let messageError = []
+        if(name.value === '' || name.value === null || name.value >= 10) {
+            messageError.push('Please enter name and name dont too much caracter')
+        }
+        if(messageError.length > 0) {
+            e.preventDefault();
+            errorMessage.innerText = messageError.join(', ')
+        }
+    })
+</script>
+</html>
